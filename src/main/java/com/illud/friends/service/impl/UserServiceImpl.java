@@ -35,7 +35,9 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User acceptFriendRequest(String userId, String friendId) {
 		
-		return userRepo.acceptFriendRequest(userId,friendId);
+		User user=userRepo.acceptFriendRequest(userId,friendId);
+		cancelFriendRequest(userId,friendId);
+		return user;
 	}
 	@Override
 	public User unfriend(String userId, String friendId) {
@@ -68,6 +70,12 @@ public class UserServiceImpl implements UserService{
 	public List<User> findAllFriendRequests(String userId) {
 		
 		return userRepo.findAllFriendRequests(userId);
+	}
+	
+	@Override
+	public User cancelFriendRequest(String userId, String friendId) {
+		
+		return userRepo.cancelFriendRequest(userId,friendId);
 	}
 
 }

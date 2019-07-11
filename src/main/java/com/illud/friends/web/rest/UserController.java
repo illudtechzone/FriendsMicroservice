@@ -83,6 +83,11 @@ public class UserController {
 		
 		
 	}
+	@DeleteMapping("/user/{userId}/cancelFriendRequest/{friendId}")
+	public User cancelFriendRequest(@PathVariable String userId,@PathVariable String friendId){
+		log.debug("request to unfriend userId:"+userId+" friendId:"+friendId);
+		return userService.cancelFriendRequest(userId, friendId);
+	}
 	
 	
 

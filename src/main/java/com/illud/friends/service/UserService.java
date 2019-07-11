@@ -21,5 +21,8 @@ public interface UserService {
 	public User createFriendRequest(String userId, String friendId);
 	
 	public List<User> findAllFriendRequests(String userId);
+	
+	
+	public User cancelFriendRequest(String userId, String friendId);
 
 }

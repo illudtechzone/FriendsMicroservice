@@ -30,13 +30,13 @@ public interface UserRepository extends Neo4jRepository<User,String>{
 	
 	//method to make an friend request relation between friends
 	@Query("match (u:User{userId:"+"{userId}"+"}),(f:User{userId:"+"{friendId}"+"}) create (u)-[:FRIEND_REQUEST]->(f) return f")
-	 User createAnFriendRequest(String userId, String friendId);
+	 User createAnFriendRequest(@Param("userId") String userId,@Param("friendId")  String friendId);
 	
 	//get all friend requests get for this user
 	@Query("match (u:User{userId:"+"{ userId }"+"}),(u)<-[:FRIEND_REQUEST]-(requesters) return requesters;")
-	List<User> findAllFriendRequests(String userId);
+	List<User> findAllFriendRequests(@Param("userId") String userId);
 	
 	//method to cancel friend requests
 	@Query("match (u:User{userId:"+"{userId}"+"}),(f:User{userId:"+"{friendId}"+"}),(u)-[r:FRIEND_REQUEST]-(f) delete r;")
-	User cancelFriendRequest(String userId, String friendId);
+	User cancelFriendRequest(@Param("userId") String userId,@Param("friendId")  String friendId);
 }

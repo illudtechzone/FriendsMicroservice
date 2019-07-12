@@ -8,6 +8,7 @@ import com.illud.friends.domain.User;
 public interface UserService {
 	
 	public User create(User user);
+	
 	public List<User>findByName(String name);
 	
 	public List<User> findFriends( String userId);

@@ -89,6 +89,13 @@ public class UserController {
 		return userService.cancelFriendRequest(userId, friendId);
 	}
 	
+	@GetMapping("/usersByName/{name}")
+	public List<User>findByUserName(@PathVariable String name){
+		log.debug("requets to find all user with name "+name);
+		return userService.findByName(name);
+		
+	}
+	
 	
 
 }

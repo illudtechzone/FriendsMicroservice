@@ -39,4 +39,6 @@ public interface UserRepository extends Neo4jRepository<User,String>{
 	//method to cancel friend requests
 	@Query("match (u:User{userId:"+"{userId}"+"}),(f:User{userId:"+"{friendId}"+"}),(u)-[r:FRIEND_REQUEST]-(f) delete r;")
 	User cancelFriendRequest(@Param("userId") String userId,@Param("friendId")  String friendId);
+	
+
 }

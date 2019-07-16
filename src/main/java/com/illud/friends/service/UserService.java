@@ -26,4 +26,10 @@ public interface UserService {
 	
 	public User cancelFriendRequest(String userId, String friendId);
 
+	public List<User> findFriendRequestByname(String userId,String name);
+
+	public List<User> findFriendsByname(String userId, String name);
+
+	public List<User> findOthersByname(String userId, String name);
+
 }

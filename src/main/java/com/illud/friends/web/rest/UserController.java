@@ -96,6 +96,30 @@ public class UserController {
 		
 	}
 	
+	@GetMapping("/{userId}/friendRequestByName/{name}")
+	public List<User>findFriendRequestByname(@PathVariable String userId,@PathVariable String name){
+		log.debug("requets to find all friendRequest with name "+name);
+		return userService.findFriendRequestByname(userId,name);
+		
+		
+	}
+	
+	@GetMapping("/{userId}/friendsByName/{name}")
+	public List<User>findFriendsByname(@PathVariable String userId,@PathVariable String name){
+		log.debug("requets to find all friendRequest with name "+name);
+		return userService.findFriendsByname(userId,name);
+		
+		
+	}
+	
+	//rest method to find people that are not in friendlist or friend request list
+	@GetMapping("/{userId}/othersByName/{name}")
+	public List<User>findOthersByname(@PathVariable String userId,@PathVariable String name){
+		log.debug("requets to find all friendRequest with name "+name);
+		return userService.findOthersByname(userId,name);
+		
+		
+	}
 	
 
 }

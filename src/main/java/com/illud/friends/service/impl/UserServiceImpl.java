@@ -77,5 +77,20 @@ public class UserServiceImpl implements UserService{
 		
 		return userRepo.cancelFriendRequest(userId,friendId);
 	}
+	@Override
+	public List<User> findFriendRequestByname(String userId, String name) {
+		
+		return userRepo.findAllFriendRequestsWithName(userId, name);
+	}
+	@Override
+	public List<User> findFriendsByname(String userId, String name) {
+		
+		return userRepo.findAllFriendsWithName(userId, name);
+	}
+	@Override
+	public List<User> findOthersByname(String userId, String name) {
+	
+		return userRepo.findAllUsersExceptFriendRequesOrFriends(userId);
+	}
 
 }

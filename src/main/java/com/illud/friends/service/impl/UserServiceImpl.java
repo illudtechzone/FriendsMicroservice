@@ -85,12 +85,14 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> findFriendsByname(String userId, String name) {
 		
+	
+		System.out.println("MMMMMMMMMMMMMMMMMMMMMM"+userRepo.findAllFriendsWithName(userId, name));
 		return userRepo.findAllFriendsWithName(userId, name);
 	}
 	@Override
 	public List<User> findOthersByname(String userId, String name) {
 	
-		return userRepo.findAllUsersExceptFriendRequesOrFriends(userId);
+		return userRepo.findAllUsersExceptFriendRequesOrFriends(userId,name);
 	}
 
 }

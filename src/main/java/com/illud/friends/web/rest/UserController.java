@@ -116,9 +116,7 @@ public class UserController {
 	@GetMapping("/{userId}/othersByName/{name}")
 	public List<User>findOthersByname(@PathVariable String userId,@PathVariable String name){
 		log.debug("requets to find all friendRequest with name "+name);
-		return userService.findOthersByname(userId,name);
-		
-		
+		return userService.findOthersByname(userId,name);		
 	}
 	
 

@@ -50,7 +50,7 @@ public interface UserRepository extends Neo4jRepository<User,String>{
 	List<User> findAllFriendRequestsWithName(@Param("userId") String userId,@Param("name") String name);
 	
 	//get all users except people in friend list or friend request list by name
-	@Query("MATCH (b:User{name:"+"{name}"+"}),(a:User{userId:"+"{userId}"+"}) WHERE NOT (a)-[:FRIEND_OF]-(b) and  not (a)-[:FRIEND_REQUEST]-(b) and not b.id="+"{userId}"+" return b limit 30;")
+	@Query("MATCH (b:User{name:"+"{name}"+"}),(a:User{userId:"+"{userId}"+"}) WHERE NOT (a)-[:FRIEND_OF]-(b) and  not (a)-[:FRIEND_REQUEST]-(b) and  b.userId <> "+"{userId}"+" return b limit 30;")
 	List<User> findAllUsersExceptFriendRequesOrFriends(@Param("userId") String userId,@Param("name") String name);
 	
 
